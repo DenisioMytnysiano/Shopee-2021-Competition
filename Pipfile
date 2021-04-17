@@ -8,6 +8,8 @@ numpy = "*"
 pandas = "*"
 matplotlib = "*"
 torch = "*"
+notebook = "*"
+flake8 = "*"
 
 [dev-packages]
 
