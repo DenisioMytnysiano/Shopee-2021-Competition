@@ -9,9 +9,12 @@ pandas = "*"
 matplotlib = "*"
 torch = "*"
 notebook = "*"
-flake8 = "*"
 
 [dev-packages]
+flake8 = "*"
+flake8-nb = "*"
+black = "*"
+autohooks = "*"
 
 [requires]
 python_version = "3.9"
