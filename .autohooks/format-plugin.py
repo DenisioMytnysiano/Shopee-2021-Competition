@@ -2,7 +2,7 @@ import subprocess
 from autohooks.api import ok, error
 from autohooks.api.git import get_staged_status, stage_files_from_status_list, stash_unstaged_changes
 from autohooks.api.path import match
-from typing import NoReturn
+from typing import NoReturn, List
 
 python_files_extension = "*.py"
 jupyter_notebooks_extension = "*.ipynb" 
@@ -17,10 +17,10 @@ def format_files(files: List[str], extension:str) -> NoReturn:
     with stash_unstaged_changes(files):
         for file in files:
             if extension == python_files_extension:
-                subprocess.run(["flake8", str(file)], check = True)
+                subprocess.run(["poetry run flake8", str(file)], check = True)
                 ok("File {} formatted successfully".format(str(file)))
             if extension == jupyter_notebooks_extension:
-                subprocess.run(["flake8-nb", str(file)], check = True)
+                subprocess.run(["poetry run flake8-nb", str(file)], check = True)
                 ok("Notebook {} formatted successfully".format(str(file)))
         return    
 
