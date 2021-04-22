@@ -1,0 +1,30 @@
+fail_fast: true
+
+repos:
+-   repo: local
+    hooks:
+    -   id: flake8
+        name: File check with flake8
+        entry: flake8
+        language: system
+        types: [python]
+
+    -   id: flake8-nb
+        name: Notebooks check with flake8-nb 
+        entry: flake8-nb
+        language: system
+        types: [jupyter]
+        
+    -   id: black
+        name: File linting with black
+        entry: black
+        language: system
+        types: [python]
+
+    -   id: jupyter-black
+        name: Notebooks linting with jupyter-black
+        entry: jblack
+        language: system
+        types: [jupyter]
+
+

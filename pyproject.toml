@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "shopee-2021-competition"
+version = "0.1.0"
+description = ""
+authors = ["DenisioMytnysiano <den.mytnyk@ua.fm>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.20.2"
+pandas = "^1.2.4"
+matplotlib = "^3.4.1"
+ipykernel = "^5.5.3"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.1"
+flake8-nb = "^0.2.7"
+black = "^20.8b1"
+jupyterblack = "^0.3.1"
+pre-commit = "^2.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
