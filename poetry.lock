@@ -135,7 +135,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "click"
 version = "7.1.2"
 description = "Composable command line interface toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -591,6 +591,28 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "nltk"
+version = "3.6.2"
+description = "Natural Language Toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.5.*"
+
+[package.dependencies]
+click = "*"
+joblib = "*"
+regex = "*"
+tqdm = "*"
+
+[package.extras]
+all = ["matplotlib", "twython", "scipy", "numpy", "gensim (<4.0.0)", "python-crfsuite", "pyparsing", "scikit-learn", "requests"]
+corenlp = ["requests"]
+machine_learning = ["gensim (<4.0.0)", "numpy", "python-crfsuite", "scikit-learn", "scipy"]
+plot = ["matplotlib"]
+tgrep = ["pyparsing"]
+twitter = ["twython"]
+
+[[package]]
 name = "nodeenv"
 version = "1.6.0"
 description = "Node.js virtual environment builder"
@@ -900,7 +922,7 @@ py = {version = "*", markers = "implementation_name == \"pypy\""}
 name = "regex"
 version = "2021.4.4"
 description = "Alternative regular expression module, to replace re."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1054,6 +1076,19 @@ optional = false
 python-versions = ">= 3.5"
 
 [[package]]
+name = "tqdm"
+version = "4.60.0"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+telegram = ["requests"]
+
+[[package]]
 name = "traitlets"
 version = "5.0.5"
 description = "Traitlets Python configuration system"
@@ -1171,7 +1206,7 @@ pillow = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d31c685b3d6bdc55d3e4c6acc3ca693cf9f1927227b1666248eff9e770bd35d8"
+content-hash = "7757b2aeb0af917a2ec1908f5b71b22d11f8fc9774182434845af9c24f054461"
 
 [metadata.files]
 appdirs = [
@@ -1548,6 +1583,10 @@ nbformat = [
 nest-asyncio = [
     {file = "nest_asyncio-1.5.1-py3-none-any.whl", hash = "sha256:76d6e972265063fe92a90b9cc4fb82616e07d586b346ed9d2c89a4187acea39c"},
     {file = "nest_asyncio-1.5.1.tar.gz", hash = "sha256:afc5a1c515210a23c461932765691ad39e8eba6551c055ac8d5546e69250d0aa"},
+]
+nltk = [
+    {file = "nltk-3.6.2-py3-none-any.whl", hash = "sha256:240e23ab1ab159ef9940777d30c7c72d7e76d91877099218a7585370c11f6b9e"},
+    {file = "nltk-3.6.2.zip", hash = "sha256:57d556abed621ab9be225cc6d2df1edce17572efb67a3d754630c9f8381503eb"},
 ]
 nodeenv = [
     {file = "nodeenv-1.6.0-py2.py3-none-any.whl", hash = "sha256:621e6b7076565ddcacd2db0294c0381e01fd28945ab36bcf00f41c5daf63bef7"},
@@ -1986,6 +2025,10 @@ tornado = [
     {file = "tornado-6.1-cp39-cp39-win32.whl", hash = "sha256:d3d20ea5782ba63ed13bc2b8c291a053c8d807a8fa927d941bd718468f7b950c"},
     {file = "tornado-6.1-cp39-cp39-win_amd64.whl", hash = "sha256:548430be2740e327b3fe0201abe471f314741efcb0067ec4f2d7dcfb4825f3e4"},
     {file = "tornado-6.1.tar.gz", hash = "sha256:33c6e81d7bd55b468d2e793517c909b139960b6c790a60b7991b9b6b76fb9791"},
+]
+tqdm = [
+    {file = "tqdm-4.60.0-py2.py3-none-any.whl", hash = "sha256:daec693491c52e9498632dfbe9ccfc4882a557f5fa08982db1b4d3adbe0887c3"},
+    {file = "tqdm-4.60.0.tar.gz", hash = "sha256:ebdebdb95e3477ceea267decfc0784859aa3df3e27e22d23b83e9b272bf157ae"},
 ]
 traitlets = [
     {file = "traitlets-5.0.5-py3-none-any.whl", hash = "sha256:69ff3f9d5351f31a7ad80443c2674b7099df13cc41fc5fa6e2f6d3b0330b0426"},
