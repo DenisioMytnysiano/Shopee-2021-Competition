@@ -1,15 +1,13 @@
 import numpy as np
 import pandas as pd
-import configparser
-from typing import NoReturn, Tuple
-from utils import preprocess_title
+from typing import NoReturn
+from utils import preprocess_title, read_config
 from torch.utils.data import Dataset
 from transformers import BertTokenizer
 
-CONFIG = configparser.ConfigParser()
-CONFIG.read("nlp_config.ini")
-MODEL_NAME = CONFIG["model_configs"]["model_name"]
-MAX_LEN = CONFIG["dataset_configs"]["max_length"]
+CONFIG = read_config("nlp_config.ini")
+MODEL_NAME = CONFIG.get("model_configs", "model_name")
+MAX_LEN = CONFIG.getint("dataset_configs", "max_length")
 TOKENIZER = BertTokenizer.from_pretrained(MODEL_NAME)
 
 
@@ -38,7 +36,7 @@ class ShopeeNLPDataset(Dataset):
 
         return len(self.data)
 
-    def __getitem__(self, index: int) -> Tuple[np.array, np.array]:
+    def __getitem__(self, index: int) -> tuple[np.array, np.array]:
         """Method for getting item from a dataset
 
         Args:
