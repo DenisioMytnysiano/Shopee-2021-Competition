@@ -1,19 +1,4 @@
 import re
-import configparser
-
-
-def read_config(path_to_config: str) -> configparser.ConfigParser:
-    """Method to parse .ini config file
-
-    Args:
-        path_to_config (str): path to .ini config file
-
-    Returns:
-        configparser.ConfigParser: parsed .ini config file
-    """
-    config = configparser.ConfigParser()
-    config.read(path_to_config)
-    return config
 
 
 def preprocess_title(sentence: str) -> str:

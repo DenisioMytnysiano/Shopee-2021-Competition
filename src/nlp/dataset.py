@@ -1,13 +1,13 @@
 import numpy as np
 import pandas as pd
+import config
 from typing import NoReturn
-from utils import preprocess_title, read_config
+from utils import preprocess_title
 from torch.utils.data import Dataset
 from transformers import BertTokenizer
 
-CONFIG = read_config("nlp_config.ini")
-MODEL_NAME = CONFIG.get("model_configs", "model_name")
-MAX_LEN = CONFIG.getint("dataset_configs", "max_length")
+MODEL_NAME = config.MODEL_NAME
+MAX_LEN = config.MAX_LENGTH
 TOKENIZER = BertTokenizer.from_pretrained(MODEL_NAME)
 
 
