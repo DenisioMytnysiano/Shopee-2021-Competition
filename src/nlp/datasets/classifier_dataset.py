@@ -1,13 +1,11 @@
 import numpy as np
 import pandas as pd
-import config
+from config import MODEL_NAME, MAX_LENGTH
 from typing import NoReturn
 from utils import preprocess_title
 from torch.utils.data import Dataset
 from transformers import BertTokenizer
 
-MODEL_NAME = config.MODEL_NAME
-MAX_LEN = config.MAX_LENGTH
 TOKENIZER = BertTokenizer.from_pretrained(MODEL_NAME)
 
 
@@ -48,13 +46,15 @@ class ShopeeNLPDataset(Dataset):
 
         sentence = self.data[index]
         sentence = preprocess_title(sentence)
+
         text = TOKENIZER(
             sentence,
             padding="max_length",
             truncation=True,
-            max_length=MAX_LEN,
+            max_length=MAX_LENGTH,
             return_tensors="pt",
         )
+
         input_ids = text["input_ids"][0]
         attention_mask = text["attention_mask"][0]
-        return input_ids, attention_mask
+        return {"input_ids": input_ids, "attention_mask": attention_mask}
