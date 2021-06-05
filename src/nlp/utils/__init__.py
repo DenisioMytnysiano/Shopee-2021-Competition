@@ -1,5 +1,13 @@
-from .preprocess_title import preprocess_title
-from .checkpoint_model import checkpoint_model
+if __name__ == '__main__' and __package__ is None:
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
+from . import common
+from . import params_search
+from . import train
 
-__all__ = ["preprocess_title", "checkpoint_model"]
+__all__ = [
+    "common",
+    "params_search",
+    "train"
+]
